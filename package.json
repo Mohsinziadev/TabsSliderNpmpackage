@@ -1,6 +1,6 @@
 {
-  "name": "pack-to-ui-tw",
-  "version": "1.0.10",
+  "name": "react-smooth-tabs ",
+  "version": "1.0.18",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

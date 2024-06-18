@@ -6,7 +6,7 @@
 //   output: {
 //     dir: "dist",
 //     format: "es",
-//     name: "pack-to-ui-tw",
+//     name: "react-smooth-tabs ",
 //   },
 //   external: ["react", "react-dom"],
 //   plugins: [
@@ -26,7 +26,7 @@ export default defineConfig({
   output: {
     dir: "dist",
     format: "es",
-    name: "pack-to-ui-tw",
+    name: "react-smooth-tabs ",
   },
   external: ["react", "react-dom"],
   plugins: [
