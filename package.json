@@ -8,7 +8,14 @@
   "scripts": {
     "build": "npx rollup -c"
   },
-  "keywords": [],
+  "keywords": [
+    "React",
+    "React Js ",
+    "React smooth tabs",
+    "React Tabs",
+    "React slider",
+    "react-component"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
