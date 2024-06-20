@@ -1,7 +1,5 @@
 ﻿## Getting started
 
-[](https://www.npmjs.com/package/react-calendar#getting-started)
-
 ### Compatibility
 
 Your project needs to use React 16.8 or later.
@@ -15,7 +13,7 @@ react-smooth-tabs uses modern web technologies. That's why it's so fast, lightwe
 
 ### Installation
 
-[](https://www.npmjs.com/package/react-calendar#installation)
+[](https://www.npmjs.com/package/react-smooth-tabs#installation)
 
 Add react-Smooth-tabs to your project by executing `npm install react-smooth-tabs` or `yarn add react-smooth-tabs`.
 
