@@ -1,5 +1,7 @@
 ﻿## Getting started
 
+Advance Smooth and fast cross platform Tabs for React.
+
 ### Demo
 
 https://react-scrollable-tabs.vercel.app/
