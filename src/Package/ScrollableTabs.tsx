@@ -1,13 +1,33 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const ScrollableTabs = ({
   tabs,
   activeTab,
   setActiveTab,
   leftArrow,
+  className,
   rightArrow,
 }: any) => {
   const tabsRef: any = useRef(null);
+  const [colors, setColors] = useState([]);
+  useEffect(() => {
+    const predefinedColors = [
+      "#FF5733",
+      "#33FF57",
+      "#3357FF",
+      "#FF33A5",
+      "#A533FF",
+      "#FF8C33",
+      "#33FFC5",
+      "#8C33FF",
+      "#FF3385",
+      "#33FF95",
+    ];
+    const initialColors = tabs.map(
+      (_: any, index: any) => predefinedColors[index % predefinedColors.length]
+    );
+    setColors(initialColors);
+  }, [tabs]);
 
   const handleTabClick = (tab: any) => {
     const tabElement = tabsRef.current.querySelector(
@@ -55,30 +75,35 @@ const ScrollableTabs = ({
   return (
     <div className="tabs-container">
       <div className="cursor-pointer" onClick={handlePrevTab}>
-        <img
-          src={leftArrow}
-          className="h-6 w-4 mr-3 object-contain"
-          alt="Left Arrow"
-        />
+        <img src={leftArrow} className="h-8 w-6 mr-3" alt="Left Arrow" />
       </div>
       <ul className="tabs" ref={tabsRef}>
-        {tabs.map((tab: any) => (
+        {tabs.map((tab: any, index: any) => (
           <li
             key={tab.value}
-            className={`tab ${activeTab === tab.value ? "active" : ""}`}
+            className={`tab  ${className} ${
+              activeTab === tab.value ? "active" : ""
+            }`}
             onClick={() => handleTabClick(tab)}
             data-tab={tab.value}
           >
-            {tab.label}
+            <div>{tab.icon}</div>
+            <div className="flex gap-2 items-center ">
+              {tab.label}
+              {tab.qty && (
+                <span
+                  className="px-[4px] w-[22px] py-[2px] text-white rounded-lg text-xs font-light"
+                  style={{ backgroundColor: colors[index] }}
+                >
+                  {tab.qty}
+                </span>
+              )}
+            </div>
           </li>
         ))}
       </ul>
       <div className="cursor-pointer" onClick={handleNextTab}>
-        <img
-          src={rightArrow}
-          className=" ml-3 h-6 w-4 object-contain"
-          alt="Right Arrow"
-        />
+        <img src={rightArrow} className="h-8 w-6 ml-3" alt="Right Arrow" />
       </div>
     </div>
   );

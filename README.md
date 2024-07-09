@@ -1,11 +1,12 @@
 ﻿## Getting started
 
-[](https://www.npmjs.com/package/react-calendar#getting-started)
+### Demo
+
+https://react-scrollable-tabs.vercel.app/
 
 ### Compatibility
 
-Your project needs to use React 16.8 or later.
-react-smooth-tabs uses modern web technologies. That's why it's so fast, lightweight and easy to style. This, however, comes at a cost of [supporting only modern browsers](https://caniuse.com/#feat=internationalization).
+Your project needs to use React 16.8 or later. react-smooth-tabs uses modern web technologies. That's why it's so fast, lightweight and easy to style. This, however, comes at a cost of [supporting only modern browsers](https://caniuse.com/#feat=internationalization).
 
 ## Features
 
@@ -15,74 +16,80 @@ react-smooth-tabs uses modern web technologies. That's why it's so fast, lightwe
 
 ### Installation
 
-[](https://www.npmjs.com/package/react-calendar#installation)
-
 Add react-Smooth-tabs to your project by executing `npm install react-smooth-tabs` or `yarn add react-smooth-tabs`.
 
 ### Usage
 
-```ruby
-   import  {  ScrollableTabs  }  from  "react-smooth-tabs";
-   import  "react-smooth-tabs/dist/index.css";
+```jsx
+import { ScrollableTabs } from "react-smooth-tabs";
+import "react-smooth-tabs/dist/index.css";
 ```
 
-### Example
+```jsx
+import { LeftImage, RightImage } from "@images";
 
-```ruby
-  function  App()  {
-    let  [activeTab,  setActiveTab]  =  useState("activeOrders");
+function App() {
+  let [activeTab, setActiveTab] = useState("activeOrders");
 
-    const  tabsList  =  [
+  const tabs = [
     {
-    value:  "activeOrders",
-    label:  "Active Orders",
+      value: "IntractiveReports",
+      label: "Intractive Reports ",
+      icon: <TbReportSearch className="h-10 w-10" />,
+      qty: 14,
     },
     {
-    value:  "completedOrders",
-    label:  "Completed Orders",
+      value: "PlayGround",
+      label: "PlayGround",
+      icon: <CgDisplayGrid className="h-10 w-10" />,
     },
     {
-    value:  "cancelledOrders",
-    label:  "Cancelled Orders",
+      value: "FileChanges",
+      label: "File Changes",
+      icon: <FaFileContract className="h-10 w-10" />,
+      qty: 10,
     },
     {
-    value:  "WaitingResponse",
-    label:  "Waiting Response",
+      value: "LimitLessSegementation",
+      label: "LimitLess Segementation",
+      icon: <PiLineSegmentsDuotone className="h-10 w-10" />,
     },
     {
-    value:  "PendingApproval",
-    label:  "Pending Approval",
+      value: "Docunmentation",
+      label: "Docunmentation",
+      icon: <IoDocumentAttach className="h-10 w-10" />,
     },
     {
-    value:  "Declined",
-    label:  "Declined",
+      value: "CustomerStories",
+      label: "Customer Stories",
+      icon: <MdAutoStories className="h-10 w-10" />,
     },
     {
-    value:  "RoutedOffers",
-    label:  "Routed Offers",
+      value: "GroupAnaytics",
+      label: "Group Anaytics",
+      icon: <TbBrandGoogleAnalytics className="h-10 w-10" />,
     },
     {
-    value:  "DisputedOrders",
-    label:  "Disputed Orders",
+      value: "Conversion",
+      label: "Conversion",
+      icon: <GiRugbyConversion className="h-10 w-10" />,
     },
     {
-    value:  "CounterOffers",
-    label:  "Counter Offers",
+      value: "Portals",
+      label: "Portals",
+      icon: <AiFillCustomerService className="h-10 w-10" />,
     },
-    ];
+  ];
 
-    return  (
-
-	    <ScrollableTabs
-	    tabs={tabsList}
-	    activeTab={activeTab}
-	    setActiveTab={setActiveTab}
-	    leftArrow={"https://cdn-icons-png.flaticon.com/512/109/109618.png"}
-	    rightArrow={"https://cdn-icons-png.flaticon.com/512/109/109617.png"}
-	    />
-
-    );
-    }
-    export  default  App;
-
+  return (
+    <ScrollableTabs
+      tabs={tabsList}
+      activeTab={activeTab}
+      setActiveTab={setActiveTab}
+      leftArrow={LeftImage}
+      rightArrow={RightImage}
+    />
+  );
+}
+export default App;
 ```
