@@ -1,6 +1,6 @@
 {
-  "name": "pack-to-ui-tw",
-  "version": "1.0.10",
+  "name": "react-smooth-tabs",
+  "version": "1.2.9",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,7 +8,14 @@
   "scripts": {
     "build": "npx rollup -c"
   },
-  "keywords": [],
+  "keywords": [
+    "React",
+    "React Js ",
+    "React smooth tabs",
+    "React Tabs",
+    "React slider",
+    "react-component"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
