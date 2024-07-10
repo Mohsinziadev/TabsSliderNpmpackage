@@ -8,7 +8,7 @@ https://react-scrollable-tabs.vercel.app/
 
 ### Compatibility
 
-Your project needs to use React 16.8 or later. react-smooth-tabs uses modern web technologies. That's why it's so fast, lightweight and easy to style. This, however, comes at a cost of [supporting only modern browsers](https://caniuse.com/#feat=internationalization).
+Your project needs to use React 16.8 or later. react-smooth-tabs utilizes modern web technologies, making it fast, lightweight, and easy to style. As a result, it [supporting only modern browsers](https://caniuse.com/#feat=internationalization).
 
 ## Features
 
@@ -28,7 +28,7 @@ import "react-smooth-tabs/dist/index.css";
 ```
 
 ```jsx
-import { LeftImage, RightImage } from "@images";
+import { LeftIcon, RightIcon } from "@images";
 
 function App() {
   let [activeTab, setActiveTab] = useState("activeOrders");
@@ -88,8 +88,8 @@ function App() {
       tabs={tabsList}
       activeTab={activeTab}
       setActiveTab={setActiveTab}
-      leftArrow={LeftImage}
-      rightArrow={RightImage}
+      leftArrow={LeftIcon}
+      rightArrow={RightIcon}
     />
   );
 }
