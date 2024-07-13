@@ -19,6 +19,7 @@ Your project needs to use React 16.8 or later. react-smooth-tabs utilizes modern
 ### Installation
 
 Add react-Smooth-tabs to your project by executing `npm install react-smooth-tabs` or `yarn add react-smooth-tabs`.
+Add Tailwind css into your React Project .
 
 ### Usage
 
@@ -85,11 +86,14 @@ function App() {
 
   return (
     <ScrollableTabs
-      tabs={tabsList}
+      tabs={tabs}
       activeTab={activeTab}
       setActiveTab={setActiveTab}
-      leftArrow={LeftIcon}
-      rightArrow={RightIcon}
+      position="Horizontal"
+      displayArrows={true}
+      leftArrow={swipeIcon}
+      rightArrow={swipeIcon}
+      className="flex flex-col gap-2  items-center justify-center"
     />
   );
 }

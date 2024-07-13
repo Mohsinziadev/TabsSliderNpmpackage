@@ -4,8 +4,10 @@ const ScrollableTabs = ({
   tabs,
   activeTab,
   setActiveTab,
-  leftArrow,
   className,
+  position,
+  displayArrows,
+  leftArrow,
   rightArrow,
 }: any) => {
   const tabsRef: any = useRef(null);
@@ -73,15 +75,31 @@ const ScrollableTabs = ({
   };
 
   return (
-    <div className="tabs-container">
-      <div className="cursor-pointer" onClick={handlePrevTab}>
-        <img src={leftArrow} className="h-8 w-6 mr-3" alt="Left Arrow" />
-      </div>
-      <ul className="tabs" ref={tabsRef}>
+    <div
+      className={`mt-[12px] flex items-center ${
+        position === "Horizontal" ? "border-b border-gray-500" : "border-none"
+      }`}
+    >
+      {displayArrows && position === "Horizontal" && (
+        <div className="cursor-pointer" onClick={handlePrevTab}>
+          <img
+            src={leftArrow}
+            className="h-10 w-10 mr-10 rotate-180"
+            alt="Left Arrow"
+          />
+        </div>
+      )}
+
+      <ul
+        className={`tabs  ${
+          position === "Horizontal" ? "flex flex-row  " : "flex flex-col"
+        }`}
+        ref={tabsRef}
+      >
         {tabs.map((tab: any, index: any) => (
           <li
             key={tab.value}
-            className={`tab  ${className} ${
+            className={`tab flex !justify-start ${className} ${
               activeTab === tab.value ? "active" : ""
             }`}
             onClick={() => handleTabClick(tab)}
@@ -92,7 +110,7 @@ const ScrollableTabs = ({
               {tab.label}
               {tab.qty && (
                 <span
-                  className="px-[4px] w-[22px] py-[2px] text-white rounded-lg text-xs font-light"
+                  className="px-[4px] w-fit py-[2px] text-white rounded-lg text-xs font-light"
                   style={{ backgroundColor: colors[index] }}
                 >
                   {tab.qty}
@@ -101,10 +119,37 @@ const ScrollableTabs = ({
             </div>
           </li>
         ))}
+        {position === "vertical" && (
+          <div className="flex gap-4">
+            <div
+              className="cursor-pointer border bg-green p-2 "
+              onClick={handlePrevTab}
+            >
+              <img
+                src={rightArrow}
+                className="h-10 w-10 -rotate-90"
+                alt="Left Arrow"
+              />
+            </div>
+            <div
+              className="cursor-pointer border bg-green p-2 "
+              onClick={handleNextTab}
+            >
+              <img
+                src={leftArrow}
+                className="h-10 w-10 rotate-90"
+                alt="Left Arrow"
+              />
+            </div>
+          </div>
+        )}
       </ul>
-      <div className="cursor-pointer" onClick={handleNextTab}>
-        <img src={rightArrow} className="h-8 w-6 ml-3" alt="Right Arrow" />
-      </div>
+
+      {displayArrows && position === "Horizontal" && (
+        <div className="cursor-pointer" onClick={handleNextTab}>
+          <img src={rightArrow} className="h-10 w-10 ml-6" alt="Right Arrow" />
+        </div>
+      )}
     </div>
   );
 };
