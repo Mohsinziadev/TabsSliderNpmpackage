@@ -1,33 +1,19 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 
 const ScrollableTabs = ({
   tabs,
   activeTab,
   setActiveTab,
-  leftArrow,
+  activeColor,
+  lineColor,
   className,
+  position,
+  displayArrows,
+  leftArrow,
   rightArrow,
 }: any) => {
+  
   const tabsRef: any = useRef(null);
-  const [colors, setColors] = useState([]);
-  useEffect(() => {
-    const predefinedColors = [
-      "#FF5733",
-      "#33FF57",
-      "#3357FF",
-      "#FF33A5",
-      "#A533FF",
-      "#FF8C33",
-      "#33FFC5",
-      "#8C33FF",
-      "#FF3385",
-      "#33FF95",
-    ];
-    const initialColors = tabs.map(
-      (_: any, index: any) => predefinedColors[index % predefinedColors.length]
-    );
-    setColors(initialColors);
-  }, [tabs]);
 
   const handleTabClick = (tab: any) => {
     const tabElement = tabsRef.current.querySelector(
@@ -73,38 +59,83 @@ const ScrollableTabs = ({
   };
 
   return (
-    <div className="tabs-container">
-      <div className="cursor-pointer" onClick={handlePrevTab}>
-        <img src={leftArrow} className="h-8 w-6 mr-3" alt="Left Arrow" />
-      </div>
-      <ul className="tabs" ref={tabsRef}>
+    <div
+      className="mt-[12px] flex items-center"
+      style={{
+        borderColor: lineColor || "gray",
+        borderBottomWidth: position === "Horizontal" ? "2px" : "0px",
+      }}
+    >
+      {displayArrows && position === "Horizontal" && (
+        <div className="cursor-pointer" onClick={handlePrevTab}>
+          <img src={leftArrow} className="h-10 w-10 mr-10" alt="Left Arrow" />
+        </div>
+      )}
+
+      <ul
+        className={`tabs  ${
+          position === "Horizontal" ? "flex flex-row  " : "flex flex-col"
+        }`}
+        ref={tabsRef}
+      >
         {tabs.map((tab: any, index: any) => (
           <li
             key={tab.value}
-            className={`tab  ${className} ${
-              activeTab === tab.value ? "active" : ""
-            }`}
+            className={`tab flex !justify-start ${className}`}
             onClick={() => handleTabClick(tab)}
             data-tab={tab.value}
+            style={{
+              fontWeight: activeTab === tab.value ? 600 : "normal",
+              color: activeTab === tab.value ? activeColor : "inherit",
+              borderBottom:
+                activeTab === tab.value ? `2px solid ${activeColor}` : "none",
+            }}
           >
             <div>{tab.icon}</div>
-            <div className="flex gap-2 items-center ">
+            <div className="flex gap-2 items-center text-[12px] font-light ">
               {tab.label}
               {tab.qty && (
                 <span
-                  className="px-[4px] w-[22px] py-[2px] text-white rounded-lg text-xs font-light"
-                  style={{ backgroundColor: colors[index] }}
+                  className="p-[2px] h-[16px] w-[16px] text-white rounded-full items-center justify-center flex text-[8px] font-light"
+                  style={{ backgroundColor: tab?.qty?.color }}
                 >
-                  {tab.qty}
+                  {tab?.qty?.value}
                 </span>
               )}
             </div>
           </li>
         ))}
+        {position === "vertical" && (
+          <div className="flex gap-4">
+            <div
+              className="cursor-pointer border bg-green p-2 "
+              onClick={handlePrevTab}
+            >
+              <img
+                src={rightArrow}
+                className="h-6 w-6 -rotate-90"
+                alt="Left Arrow"
+              />
+            </div>
+            <div
+              className="cursor-pointer border bg-green p-2 "
+              onClick={handleNextTab}
+            >
+              <img
+                src={leftArrow}
+                className="h-6 w-6 -rotate-90"
+                alt="Left Arrow"
+              />
+            </div>
+          </div>
+        )}
       </ul>
-      <div className="cursor-pointer" onClick={handleNextTab}>
-        <img src={rightArrow} className="h-8 w-6 ml-3" alt="Right Arrow" />
-      </div>
+
+      {displayArrows && position === "Horizontal" && (
+        <div className="cursor-pointer" onClick={handleNextTab}>
+          <img src={rightArrow} className="h-10 w-10 ml-6" alt="Right Arrow" />
+        </div>
+      )}
     </div>
   );
 };
