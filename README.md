@@ -28,6 +28,9 @@ Your project needs to use React 16.8 or later. react-smooth-tabs uses modern web
 - displayArrows: A boolean that controls the visibility of the navigation arrows.
 - leftArrow and rightArrow: The custom icons/images for the left and right navigation arrows.
 - className: Additional class names for styling the component (optional).
+- Quantity: Add the JSON format to the key as shown below to enable quantity (e.g., qty: { color: "#FF4081", value: "10" }).
+
+
 
 
 ### Installation
@@ -58,6 +61,7 @@ function App() {
       value: "PlayGround",
       label: "PlayGround",
       icon: <img src={playgroundIcon} className="h-[1.5rem] w-[1.5rem]" />,
+      qty: { color: "#FF4081", value: "10" }, 
     },
     {
       value: "FileChanges",
