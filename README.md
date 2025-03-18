@@ -4,6 +4,13 @@
 
 https://react-scrollable-tabs.vercel.app/
 
+<br />
+<div align="center">
+  <a href="https://react-scrollable-tabs.vercel.app/">
+    <img src="https://drive.google.com/uc?id=1vCrHcIzMHEQjgAwXwvFuSjc_BDOis3p3" alt="Logo"  style="max-width: 100%; height: 15rem; object-fit: cover;">
+  </a>
+</div>
+
 ### Compatibility
 
 Your project needs to use React 16.8 or later. react-smooth-tabs uses modern web technologies. That's why it's so fast, lightweight and easy to style. This, however, comes at a cost of [supporting only modern browsers](https://caniuse.com/#feat=internationalization).
@@ -17,8 +24,8 @@ Your project needs to use React 16.8 or later. react-smooth-tabs uses modern web
 - Horizontal/Vertical tab positioning
 - Customizable active tab highlight color and background color
 
-
 ### Explanation of Props:
+
 - tabs: The array of objects representing the tabs. Each object must have a value, label, and icon property.
 - activeTab: The currently active tab’s value (e.g., "activeOrders").
 - setActiveTab: A function that updates the active tab.
@@ -30,13 +37,9 @@ Your project needs to use React 16.8 or later. react-smooth-tabs uses modern web
 - className: Additional class names for styling the component (optional).
 - Quantity: Add the JSON format to the key as shown below to enable quantity (e.g., qty: { color: "#FF4081", value: "10" }).
 
-
-
-
 ### Installation
 
 Add react-Smooth-tabs to your project by executing `npm install react-smooth-tabs` or `yarn add react-smooth-tabs`.
-
 
 ### Usage
 
@@ -61,7 +64,7 @@ function App() {
       value: "PlayGround",
       label: "PlayGround",
       icon: <img src={playgroundIcon} className="h-[1.5rem] w-[1.5rem]" />,
-      qty: { color: "#FF4081", value: "10" }, 
+      qty: { color: "#FF4081", value: "10" },
     },
     {
       value: "FileChanges",
@@ -115,8 +118,4 @@ function App() {
   );
 }
 export default App;
-
-
 ```
-
-

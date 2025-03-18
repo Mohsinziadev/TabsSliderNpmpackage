@@ -12,7 +12,6 @@ const ScrollableTabs = ({
   leftArrow,
   rightArrow,
 }: any) => {
-  
   const tabsRef: any = useRef(null);
 
   const handleTabClick = (tab: any) => {
@@ -60,7 +59,7 @@ const ScrollableTabs = ({
 
   return (
     <div
-      className="mt-[12px] flex items-center"
+      className={`scrollable-tabs mt-[12px] flex items-center`}
       style={{
         borderColor: lineColor || "",
         borderBottomWidth: position === "Horizontal" ? "2px" : "0px",
@@ -73,7 +72,7 @@ const ScrollableTabs = ({
       )}
 
       <ul
-        className={`tabs  ${
+        className={`CustomTabs  ${
           position === "Horizontal" ? "flex flex-row  " : "flex flex-col"
         }`}
         ref={tabsRef}
@@ -81,7 +80,7 @@ const ScrollableTabs = ({
         {tabs.map((tab: any, index: any) => (
           <li
             key={tab.value}
-            className={`tab flex !justify-start ${className}`}
+            className={`CustomTab flex !justify-start ${className}`}
             onClick={() => handleTabClick(tab)}
             data-tab={tab.value}
             style={{
